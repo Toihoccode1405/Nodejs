@@ -10,29 +10,28 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
+        type: DataTypes.STRING
+      },
+      password: {
+        type: DataTypes.STRING
       },
       firstName: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       lastName: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
       },
       address: {
-        type: DataTypes.STRING,
-        allowNull: true
+        type: DataTypes.STRING
       },
       gender: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false
+        type: DataTypes.BOOLEAN
       },
-      roleId: {
-        type: DataTypes.STRING,
-        allowNull: false
+      typeRole: {
+        type: DataTypes.STRING
+      },
+      keyRole: {
+        type: DataTypes.STRING
       },
       createdAt: {
         allowNull: false,

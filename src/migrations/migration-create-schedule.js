@@ -1,24 +1,28 @@
 'use strict';
+const { DataTypes } = require('sequelize');
 module.exports = {
     up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('allcodes', {
+        await queryInterface.createTable('schedules', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            key: {
-                type: Sequelize.STRING
+            currentNumber: {
+                type: DataTypes.INTEGER,
             },
-            type: {
-                type: Sequelize.STRING
+            maxNumber: {
+                type: DataTypes.INTEGER,
             },
-            valueEn: {
-                type: Sequelize.STRING
+            date: {
+                type: DataTypes.DATE,
             },
-            valueVi: {
-                type: Sequelize.STRING
+            timeType: {
+                type: DataTypes.STRING,
+            },
+            doctorId: {
+                type: DataTypes.INTEGER,
             },
             createdAt: {
                 allowNull: false,
@@ -31,6 +35,6 @@ module.exports = {
         });
     },
     down: async (queryInterface, Sequelize) => {
-        await queryInterface.dropTable('allcodes');
+        await queryInterface.dropTable('schedules');
     }
 };

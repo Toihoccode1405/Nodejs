@@ -1,24 +1,22 @@
 'use strict';
+const { DataTypes } = require('sequelize');
 module.exports = {
     up: async (queryInterface, Sequelize) => {
-        await queryInterface.createTable('allcodes', {
+        await queryInterface.createTable('clinics', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            key: {
-                type: Sequelize.STRING
+            address: {
+                type: DataTypes.STRING,
             },
-            type: {
-                type: Sequelize.STRING
+            description: {
+                type: DataTypes.TEXT,
             },
-            valueEn: {
-                type: Sequelize.STRING
-            },
-            valueVi: {
-                type: Sequelize.STRING
+            image: {
+                type: DataTypes.STRING,
             },
             createdAt: {
                 allowNull: false,
@@ -31,6 +29,6 @@ module.exports = {
         });
     },
     down: async (queryInterface, Sequelize) => {
-        await queryInterface.dropTable('allcodes');
+        await queryInterface.dropTable('clinics');
     }
 };
