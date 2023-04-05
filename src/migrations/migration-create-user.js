@@ -24,13 +24,19 @@ module.exports = {
       address: {
         type: DataTypes.STRING
       },
+      phonenumber: {
+        type: DataTypes.STRING
+      },
       gender: {
         type: DataTypes.BOOLEAN
       },
-      typeRole: {
+      image: {
         type: DataTypes.STRING
       },
-      keyRole: {
+      roleId: {
+        type: DataTypes.STRING
+      },
+      positionId: {
         type: DataTypes.STRING
       },
       createdAt: {
