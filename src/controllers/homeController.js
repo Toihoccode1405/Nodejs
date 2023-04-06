@@ -45,10 +45,38 @@ let displayGetCRUD = async (req, res) => {
     })
 }
 
+let getEditCRUD = async (req, res) => {
+    let userId = req.query.id;
+    if (userId) {
+        let userData = await CRUDservice.getUserInfoById(userId);
+        // console.log('-------------------------------------------------')
+        // console.log(userData)
+        // console.log('-------------------------------------------------')
+        // let userData
+        //gan x <- y tức là gán cái userData vào user
+        return res.render('editCRUD.ejs', {
+            user: userData // hiển thị dữ liệu ra màn hình
+        });
+    }
+    else {
+        return res.send('Users not found!');
+    }
+}
+
+let putCRUD = async (req, res) => {
+    let data = req.body;
+    let allUsers = await CRUDservice.updateUserData(data);
+    return res.render('displayCRUD.ejs', {
+        dataTable: allUsers
+    })
+}
+
 module.exports = {
     getHomePageL: getHomePage,
     getAboutPage: getAboutPage,
     getCRUD: getCRUD,
     postCRUD: postCRUD,
     displayGetCRUD: displayGetCRUD,
+    getEditCRUD: getEditCRUD,
+    putCRUD: putCRUD,
 }
